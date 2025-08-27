@@ -166,7 +166,7 @@ const HomePage = () => {
             {additionalFeatures.map((feature, index) => (
               <div
                 key={index}
-                className="flex items-start space-x-4 p-6 border border-gray-700 rounded-xl hover:border-gray-500 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl"
+                className="flex items-start space-x-4 p-6 border border-gray-700 rounded-xl hover:border-gray-500 transition-all duration-500  hover:shadow-xl"
               >
                 <div className="text-emerald-400 flex-shrink-0">
                   {feature.icon}
