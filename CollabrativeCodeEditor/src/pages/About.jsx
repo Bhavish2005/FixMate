@@ -4,7 +4,7 @@ const About = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white flex flex-col items-center px-6 py-16">
       {/* Header */}
-      <h1 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent text-center mb-10">
+      <h1 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-teal-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent text-center mb-10">
         About Our Collaborative Code Editor
       </h1>
 
@@ -21,7 +21,7 @@ const About = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
         {/* Card 1 */}
         <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl shadow-lg p-8 border border-slate-700 hover:scale-105 transition-transform duration-300">
-          <h2 className="text-2xl font-semibold text-cyan-400 mb-4">
+          <h2 className="text-2xl font-semibold bg-gradient-to-r from-teal-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
             Real-Time Collaboration
           </h2>
           <p className="text-gray-300">
@@ -32,7 +32,7 @@ const About = () => {
 
         {/* Card 2 */}
         <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl shadow-lg p-8 border border-slate-700 hover:scale-105 transition-transform duration-300">
-          <h2 className="text-2xl font-semibold text-blue-400 mb-4">
+          <h2 className="text-2xl font-semibold bg-gradient-to-r from-teal-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
             Multi-Language Support
           </h2>
           <p className="text-gray-300">
@@ -43,9 +43,9 @@ const About = () => {
 
         {/* Card 3 */}
         <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl shadow-lg p-8 border border-slate-700 hover:scale-105 transition-transform duration-300">
-          <h2 className="text-2xl font-semibold text-cyan-300 mb-4">
+          <span className="text-2xl font-semibold bg-gradient-to-r from-teal-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
             Secure & Scalable
-          </h2>
+          </span>
           <p className="text-gray-300">
             Built with security and performance in mind — perfect for teams of
             any size, from students to enterprises.

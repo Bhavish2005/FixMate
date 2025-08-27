@@ -30,33 +30,84 @@
 
 // export default App;
 
+// import React from 'react';
+// import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+// import Navbar from './components/Navbar';
+// import HomePage from './pages/HomePage';
+// import RoomPage from './pages/RoomPage';
+// import LoginPage from './pages/LoginPage';
+// import RegisterPage from './pages/RegisterPage';
+// import ForgotPasswordPage from './pages/ForgotPasswordPage';
+// import About from './pages/About';
+
+// function Layout() {
+//   const location = useLocation();
+
+//   // Hide navbar on room page
+//   const hideNavbar = location.pathname.startsWith('/room/');
+
+//   return (
+//     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white pt-16">
+//       {!hideNavbar && <Navbar />}
+//       <Routes>
+//         <Route path="/" element={<HomePage />} />
+//         <Route path="/room/:roomId" element={<RoomPage />} />
+//         <Route path="/about" element={<About />} />
+//         <Route path="/login" element={<LoginPage />} />
+//         <Route path="/register" element={<RegisterPage />} />
+//         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+//       </Routes>
+//     </div>
+//   );
+// }
+
+// function App() {
+//   return (
+//     <Router>
+//       <Layout />
+//     </Router>
+//   );
+// }
+
+// export default App;
+
+// src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';  
 import HomePage from './pages/HomePage';
 import RoomPage from './pages/RoomPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ForgotPasswordPage from './pages/ForgotPasswordPage';
 import About from './pages/About';
+import Dashboard from './pages/Dashboard';
 
 function Layout() {
   const location = useLocation();
 
-  // Hide navbar on room page
-  const hideNavbar = location.pathname.startsWith('/room/');
+  // Hide navbar and footer on room page
+  const hideNavAndFooter = location.pathname.startsWith('/room/');
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white pt-16">
-      {!hideNavbar && <Navbar />}
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/room/:roomId" element={<RoomPage />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
-      </Routes>
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+      {!hideNavAndFooter && <Navbar />}
+
+      {/* Main content area grows to push footer down */}
+      <main className={`flex-grow ${!hideNavAndFooter ? "pt-16" : ""}`}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/room/:roomId" element={<RoomPage />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+        </Routes>
+      </main>
+
+      {!hideNavAndFooter && <Footer />}
     </div>
   );
 }
@@ -70,3 +121,4 @@ function App() {
 }
 
 export default App;
+
