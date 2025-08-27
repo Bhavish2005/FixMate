@@ -1,18 +1,8 @@
 import React from 'react';
 import { Crown, Mic, MicOff, Video, VideoOff } from 'lucide-react';
 
-interface Participant {
-  id: string;
-  name: string;
-  avatar: string;
-  isHost: boolean;
-  isAudioOn: boolean;
-  isVideoOn: boolean;
-  isOnline: boolean;
-}
-
-const ParticipantsList: React.FC = () => {
-  const participants: Participant[] = [
+const ParticipantsList = () => {
+  const participants = [
     {
       id: '1',
       name: 'You',

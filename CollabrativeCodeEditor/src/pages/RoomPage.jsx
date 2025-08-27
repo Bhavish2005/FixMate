@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Play, Copy, Users, Send, Video, Mic, MicOff, VideoOff, Settings } from 'lucide-react';
+import { Play, Copy, Users } from 'lucide-react';
 import CodeEditor from '../components/CodeEditor';
 import ChatPanel from '../components/ChatPanel';
 import VideoPanel from '../components/VideoPanel';
 import ParticipantsList from '../components/ParticipantsList';
 
-const RoomPage: React.FC = () => {
-  const { roomId } = useParams<{ roomId: string }>();
+const RoomPage = () => {
+  const { roomId } = useParams();
   const [language, setLanguage] = useState('javascript');
   const [code, setCode] = useState('// Welcome to CodeSync!\n// Start coding collaboratively\n\nconsole.log("Hello, CodeSync!");');
 

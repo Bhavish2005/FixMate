@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Code2, Mail, Lock, User, Eye, EyeOff } from 'lucide-react';
+import PasswordStrengthBar from "../components/PasswordStrengthBar";
+import GoogleAuthButton from "../components/GoogleAuthButton";
 
-const RegisterPage: React.FC = () => {
+const RegisterPage = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,15 +14,16 @@ const RegisterPage: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [termsAccepted, setTermsAccepted] = useState(false); 
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     
@@ -48,6 +51,7 @@ const RegisterPage: React.FC = () => {
 
         {/* Form */}
         <div className="bg-gray-800 p-8 rounded-2xl border border-gray-700 shadow-xl">
+          <GoogleAuthButton termsAccepted={termsAccepted} />  
           <form className="space-y-6" onSubmit={handleSubmit}>
             {/* Name */}
             <div>
@@ -123,6 +127,8 @@ const RegisterPage: React.FC = () => {
                   {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                 </button>
               </div>
+               {/* Password Strength Bar */}
+            <PasswordStrengthBar password={formData.password} />
             </div>
 
             {/* Confirm Password */}
@@ -155,14 +161,15 @@ const RegisterPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Terms */}
+           {/* Terms */}
             <div className="flex items-start">
               <div className="flex items-center h-5">
                 <input
                   id="terms"
                   name="terms"
                   type="checkbox"
-                  required
+                  checked={termsAccepted} 
+                  onChange={(e) => setTermsAccepted(e.target.checked)} 
                   className="h-4 w-4 text-blue-600 bg-gray-700 border-gray-600 rounded focus:ring-blue-500 focus:ring-2"
                 />
               </div>

@@ -1,17 +1,9 @@
 import React, { useState } from 'react';
 import { Send, Smile } from 'lucide-react';
 
-interface Message {
-  id: string;
-  username: string;
-  content: string;
-  timestamp: Date;
-  avatar: string;
-}
-
-const ChatPanel: React.FC = () => {
+const ChatPanel = () => {
   const [message, setMessage] = useState('');
-  const [messages] = useState<Message[]>([
+  const [messages] = useState([
     {
       id: '1',
       username: 'Alice',
@@ -42,7 +34,7 @@ const ChatPanel: React.FC = () => {
     }
   };
 
-  const formatTime = (date: Date) => {
+  const formatTime = (date) => {
     return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   };
 
@@ -102,3 +94,4 @@ const ChatPanel: React.FC = () => {
 };
 
 export default ChatPanel;
+

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Video, VideoOff, Mic, MicOff, Phone, Settings, Maximize2 } from 'lucide-react';
 
-const VideoPanel: React.FC = () => {
+const VideoPanel = () => {
   const [isVideoOn, setIsVideoOn] = useState(true);
   const [isAudioOn, setIsAudioOn] = useState(true);
   const [isCallActive, setIsCallActive] = useState(true);

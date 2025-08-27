@@ -1,12 +1,6 @@
 import React from 'react';
 
-interface CodeEditorProps {
-  language: string;
-  value: string;
-  onChange: (value: string) => void;
-}
-
-const CodeEditor: React.FC<CodeEditorProps> = ({ language, value, onChange }) => {
+const CodeEditor = ({ language, value, onChange }) => {
   return (
     <div className="h-full bg-gray-900 relative">
       {/* Monaco Editor Placeholder */}

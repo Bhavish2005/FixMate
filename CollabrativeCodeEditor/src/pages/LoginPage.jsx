@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Code2, Mail, Lock, Eye, EyeOff } from 'lucide-react';
+import GoogleAuthButton from "../components/GoogleAuthButton";
 
-const LoginPage: React.FC = () => {
+const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     
@@ -34,8 +35,9 @@ const LoginPage: React.FC = () => {
           <p className="mt-2 text-gray-400">Sign in to your CodeSync account</p>
         </div>
 
-        {/* Form */}
+        {/* Form */}  
         <div className="bg-gray-800 p-8 rounded-2xl border border-gray-700 shadow-xl">
+          <GoogleAuthButton termsAccepted={true} />  
           <form className="space-y-6" onSubmit={handleSubmit}>
             {/* Email */}
             <div>
